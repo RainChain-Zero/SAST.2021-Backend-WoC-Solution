@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.woc.mapper.UserMapper">
+
+    <!--示例-->
+    <insert id="test">
+
+        <!--这里的原先示例疑似有误，考虑将value改为(#{value})——RainChain 2022.01.15-->
+        INSERT INTO account (username) VALUE (#{value})
+    </insert>
+
+    <insert id="signUp" parameterType="com.example.woc.entity.Account">
+        INSERT INTO account(id,username,password,email) VALUE (#{id},#{username},#{password},#{email})
+    </insert>
+
+    <select id="usernameCheck" resultType="int">
+        SELECT count(*) FROM account WHERE username=#{username}
+    </select>
+
+    <select id="encryptedPasswordGetter" resultType="com.example.woc.entity.Account">
+        SELECT * FROM account WHERE username=#{username}
+    </select>
+
+    <select id="userCount" resultType="int">
+        SELECT count(*) FROM account
+    </select>
+
+    <delete id="deleteUser">
+        DELETE FROM account WHERE username=#{username}
+    </delete>
+
+</mapper>
