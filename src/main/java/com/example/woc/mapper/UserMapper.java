@@ -13,12 +13,16 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserMapper {
     //示例
-    void test(@Param("value")String test);
+    void test(@Param("value") String test);
 
     void signUp(Account account);
-    int usernameCheck(@Param("username")String username);
+
+    int usernameCheck(@Param("username") String username);
+
     //按照代码逻辑，只可能存在一个匹配的账户，所以返回值直接设为Account——RainChain 2022.01.15
-    Account encryptedPasswordGetter(@Param("username")String username);
+    Account getAccount(@Param("username") String username);
+
     int userCount();
-    void deleteUser(@Param("username")String username);
+
+    void deleteUser(@Param("username") String username);
 }

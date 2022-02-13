@@ -21,32 +21,27 @@ public class UserService {
     }
 
     //username同名判断——RainChain 2022.01.15
-    public int usernameCheck(String username)
-    {
+    public int usernameCheck(String username) {
         return userMapper.usernameCheck(username);
     }
 
     //sign up——RainChain 2022.01.15
-    public void signUp(Account account)
-    {
+    public void signUp(Account account) {
         userMapper.signUp(account);
     }
 
     //login——RainChain 2022.01.15
-    public Account login(String username)
-    {
-        return userMapper.encryptedPasswordGetter(username);
+    public Account getAccount(String username) {
+        return userMapper.getAccount(username);
     }
 
     //admin 统计账号数——RainChain 2022.01.15
-    public int userCount()
-    {
+    public int userCount() {
         return userMapper.userCount();
     }
 
     //admin 删除指定账号——RainChain 2022.01.15
-    public void deleteUser(String username)
-    {
+    public void deleteUser(String username) {
         userMapper.deleteUser(username);
     }
 }

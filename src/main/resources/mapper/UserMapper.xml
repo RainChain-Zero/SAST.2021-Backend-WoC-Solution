@@ -10,14 +10,14 @@
     </insert>
 
     <insert id="signUp" parameterType="com.example.woc.entity.Account">
-        INSERT INTO account(id,username,password,email) VALUE (#{id},#{username},#{password},#{email})
+        INSERT INTO account(username,password,email,role) VALUE (#{username},#{password},#{email},#{role})
     </insert>
 
     <select id="usernameCheck" resultType="int">
         SELECT count(*) FROM account WHERE username=#{username}
     </select>
 
-    <select id="encryptedPasswordGetter" resultType="com.example.woc.entity.Account">
+    <select id="getAccount" resultType="com.example.woc.entity.Account">
         SELECT * FROM account WHERE username=#{username}
     </select>
 
